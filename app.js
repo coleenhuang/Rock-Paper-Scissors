@@ -1,10 +1,16 @@
 const optionsArray = ["rock", "paper", "scissors"]
+let playerSelection = 'rock';
+let computerSelection;
+
 function computerPlay(myArray) {
     return myArray[Math.floor(Math.random()* myArray.length)]
 }
 
 function playRound (playerSelection, computerSelection) {
     //Compares computer and player input to see who wins
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerPlay(optionsArray).toLowerCase();
+    console.log(computerSelection)
     if (playerSelection == computerSelection) {
         return "Tie"
     }
@@ -19,9 +25,9 @@ function playRound (playerSelection, computerSelection) {
         return "You win"
     }
 }
-const playerSelection = "rock";
-const computerSelection = computerPlay(optionsArray);
-console.log(computerSelection)
+
+
+
 console.log(playRound(playerSelection, computerSelection))
 
 
