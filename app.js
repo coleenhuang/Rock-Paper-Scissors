@@ -2,12 +2,13 @@ const optionsArray = ["rock", "paper", "scissors"]
 let playerSelection = 'rock';
 let computerSelection;
 
+
 function computerPlay(myArray) {
     return myArray[Math.floor(Math.random()* myArray.length)]
 }
 
 function playRound (playerSelection, computerSelection) {
-    //Compares computer and player input to see who wins
+    //Compares computer and player input to see who wins each round
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerPlay(optionsArray).toLowerCase();
     console.log(computerSelection)
@@ -28,11 +29,14 @@ function playRound (playerSelection, computerSelection) {
 
 
 
-console.log(playRound(playerSelection, computerSelection))
+
 
 
 function game(){
     //Keeps score and calculates who wins or loses
-    //call playRound function within this function
+    for(let i = 0; i<5; i++) {
+        console.log(playRound(playerSelection, computerSelection))
+    }
 }
 
+game();
