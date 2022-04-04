@@ -1,5 +1,5 @@
 const optionsArray = ["rock", "paper", "scissors"]
-let playerSelection = 'rock';
+let playerSelection;
 let computerSelection;
 
 
@@ -35,6 +35,7 @@ function playRound (playerSelection, computerSelection) {
 function game(){
     //Keeps score and calculates who wins or loses
     for(let i = 0; i<5; i++) {
+        playerSelection = window.prompt("Choose rock, paper or scissors");
         console.log(playRound(playerSelection, computerSelection))
     }
 }
