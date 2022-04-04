@@ -43,6 +43,15 @@ function game(){
         console.log(playRound(playerSelection, computerSelection));
         console.log('player', playerScore, 'computer', computerScore);
     }
+    if (playerScore === computerScore) {
+        console.log(' Looks like this was a tie')
+    }
+    else if (computerScore > playerScore) {
+        console.log('The computer won!')
+    }
+    else {
+        console.log('Congrats! You won!')
+    }
 }
 
 game();
