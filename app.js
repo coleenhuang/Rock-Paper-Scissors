@@ -5,15 +5,23 @@ function computerPlay(myArray) {
 
 function playRound (playerSelection, computerSelection) {
     //Compares computer and player input to see who wins
-    if (playerSelection === computerSelection) {
+    if (playerSelection == computerSelection) {
         return "Tie"
     }
+    else if (
+        (playerSelection == 'rock' && computerSelection == 'paper') ||
+        (playerSelection == 'paper' && computerSelection == 'scissor') ||
+        (playerSelection == 'scissors' && computerSelection == 'rock')
+    ){
+        return 'Computer wins'
+    }
     else {
-        return "hey!"
+        return "You win"
     }
 }
 const playerSelection = "rock";
 const computerSelection = computerPlay(optionsArray);
+console.log(computerSelection)
 console.log(playRound(playerSelection, computerSelection))
 
 
