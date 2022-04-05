@@ -3,7 +3,13 @@ let playerSelection;
 let computerSelection;
 let computerScore = 0;
 let playerScore = 0;
+const buttonList = document.querySelectorAll('.button');
 
+buttonList.forEach(button => {
+     button.addEventListener('click', function(){
+         console.log(this.id)
+     })
+})
 
 function computerPlay(myArray) {
     return myArray[Math.floor(Math.random()* myArray.length)]
@@ -38,11 +44,13 @@ function playRound (playerSelection, computerSelection) {
 
 function game(){
     //Keeps score and calculates who wins or loses
-    for(let i = 0; i<3; i++) {
-        playerSelection = window.prompt("Choose rock, paper or scissors");
+    
+    
+        playerSelection = 'rock';
         console.log(playRound(playerSelection, computerSelection));
         console.log('player', playerScore, 'computer', computerScore);
-    }
+    
+
     if (playerScore === computerScore) {
         console.log(' Looks like this was a tie')
     }
