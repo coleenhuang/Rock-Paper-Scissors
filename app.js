@@ -6,6 +6,7 @@ let playerScore = 0;
 const buttonList = document.querySelectorAll('.button');
 const computerScoreDisplay = document.querySelector('#computer-score');
 const playerScoreDisplay = document.querySelector('#player-score');
+const resultText = document.querySelector('.result p');
 const resultBox = document.querySelector('.result');
 const resetButton = document.querySelector('#reset');
 
@@ -63,11 +64,12 @@ function displayResults() {
     // Calculates who wins or loses game once round 3 is reached
     //Displays the result of the game
     if (computerScore == 3 || playerScore == 3) {
+        resultBox.classList.remove("hidden")
         if (computerScore > playerScore) {
-            resultBox.append("The computer won")
+            resultText.append("The computer won")
         }
         else {
-            resultBox.append("You won")
+            resultText.append("You won")
         }
    }
 
@@ -77,6 +79,9 @@ function resetGame() {
     playerScore = 0;
     computerScore = 0;
     displayScore();
+    resultText.innerHTML = '';
+    resultBox.classList.add('hidden');
+    
 }
 
 game();
