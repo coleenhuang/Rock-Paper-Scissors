@@ -4,7 +4,8 @@ let computerSelection;
 let computerScore = 0;
 let playerScore = 0;
 const buttonList = document.querySelectorAll('.button');
-
+const computerScoreDisplay = document.querySelector('#computer-score')
+const playerScoreDisplay = document.querySelector('#player-score')
 
 function computerPlay(myArray) {
     return myArray[Math.floor(Math.random()* myArray.length)]
@@ -33,20 +34,15 @@ function playRound (playerSelection, computerSelection) {
 }
 
 
-
-
-
-
 function game(){
     //Keeps score and calculates who wins or loses
     buttonList.forEach(button => {
         button.addEventListener('click', function(){
                 playRound(this.id, computerSelection)
                 console.log('player', playerScore, 'computer', computerScore)
+                displayScore()
         })
    })
-    
-        
     
 
     if (playerScore === computerScore) {
@@ -58,6 +54,11 @@ function game(){
     else {
         console.log('Congrats! You won!')
     }
+}
+
+function displayScore() {
+    computerScoreDisplay.textContent = computerScore;
+    playerScoreDisplay.textContent = playerScore;
 }
 
 game();
