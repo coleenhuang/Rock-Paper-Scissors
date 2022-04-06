@@ -4,8 +4,10 @@ let computerSelection;
 let computerScore = 0;
 let playerScore = 0;
 const buttonList = document.querySelectorAll('.button');
-const computerScoreDisplay = document.querySelector('#computer-score')
-const playerScoreDisplay = document.querySelector('#player-score')
+const computerScoreDisplay = document.querySelector('#computer-score');
+const playerScoreDisplay = document.querySelector('#player-score');
+const resultBox = document.querySelector('.result');
+const resetButton = document.querySelector('#reset');
 
 function computerPlay(myArray) {
     return myArray[Math.floor(Math.random()* myArray.length)]
@@ -40,25 +42,41 @@ function game(){
         button.addEventListener('click', function(){
                 playRound(this.id, computerSelection)
                 console.log('player', playerScore, 'computer', computerScore)
-                displayScore()
+                displayScore();
+                displayResults();
         })
    })
+   
+   resetButton.onclick = () => {
+       console.log('reset');
+       resetGame();
+    };
     
-
-    if (playerScore === computerScore) {
-        console.log(' Looks like this was a tie')
-    }
-    else if (computerScore > playerScore) {
-        console.log('The computer won!')
-    }
-    else {
-        console.log('Congrats! You won!')
-    }
 }
 
 function displayScore() {
     computerScoreDisplay.textContent = computerScore;
     playerScoreDisplay.textContent = playerScore;
+}
+
+function displayResults() {
+    // Calculates who wins or loses game once round 3 is reached
+    //Displays the result of the game
+    if (computerScore == 3 || playerScore == 3) {
+        if (computerScore > playerScore) {
+            resultBox.append("The computer won")
+        }
+        else {
+            resultBox.append("You won")
+        }
+   }
+
+}
+
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    displayScore();
 }
 
 game();
